@@ -17,6 +17,9 @@ public class JpaMain {
         tx.begin();
 
         try {
+            String sql = "SELECT ID, AGE, TEAM_ID, NAME FROM MEMBER WHERE NAME = ‘kim’";
+
+            List<Member> resultList = em.createNativeQuery(sql, Member.class).getResultList();
 
             tx.commit();
         } catch (Exception e) {
